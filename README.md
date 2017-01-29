@@ -1,7 +1,7 @@
-angstrom-manifest
-=================
+zturn-angstrom-manifest
+=======================
 
-Ångström Repo manifest repository
+Quick hack Ångström Repo manifest repository, for zturn board. See https://github.com/Angstrom-distribution/angstrom-manifest for original.
 
 These are the setup scripts for the Ångström buildsystem. If you want to (re)build packages or images for Ångström, this is the thing to use.
 The Ångström buildsystem is using various components from the Yocto Project, most importantly the Openembedded buildsystem, the bitbake task executor and various application and BSP layers.
@@ -50,9 +50,9 @@ More rarely, Linux clients experience connectivity issues, getting stuck in the 
 Setup Environment
 -----------------
 	$ . ./setup-environment
-
+	Select zturn-zynq7 from the menu
 	$ MACHINE=<machine> bitbake <image>
-	e.g. MACHINE=beaglebone bitbake systemd-image
+	e.g. MACHINE=zturn-zynq7 bitbake zturn-image
 
 Creating a local topic branch
 -----------------------------
@@ -75,18 +75,3 @@ use following commands
 Rease your local committed changes
 
 	$ repo rebase
-
-
-If you find any bugs please report them here
-
-https://github.com/Angstrom-distribution/angstrom-manifest/issues
-
-If you have questions or feedback, please subscribe to
-
-http://lists.linuxtogo.org/cgi-bin/mailman/listinfo/angstrom-distro-devel
-
-Ångström Distribution maintainers
----------------------------------
-
-* Koen Kooi <mailto:koen@dominion.thruhere.net>
-* Khem Raj  <mailto:raj.khem@gmail.com>
