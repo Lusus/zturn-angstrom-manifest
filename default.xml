@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
-  <default revision="master" sync-j="4"/>
-
-  <remote fetch="http://git.yoctoproject.org/git" name="yocto"/>
-  <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="https://github.com" name="github"/>
   <remote fetch="http://git.linaro.org" name="linaro"/>
+  <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="http://git.shr-project.org" name="shr"/>
+  <remote fetch="http://git.yoctoproject.org/git" name="yocto"/>
 
-  <project remote="linaro" name="openembedded/meta-linaro" path="layers/meta-linaro"/>
-  <project remote="oe"     name="meta-handheld" path="layers/meta-handheld"/>
-  <project remote="oe"     name="meta-opie" path="layers/meta-opie"/>
-  <project remote="github" name="openembedded/openembedded-core" path="layers/openembedded-core" revision="morty"/>
-  <project remote="github" name="openembedded/meta-openembedded" path="layers/meta-openembedded" revision="morty"/>
-  <project remote="github" name="openembedded/bitbake" path="bitbake" revision="1.32"/>
-  <project remote="github" name="kraj/meta-nslu2" path="layers/meta-nslu2"/>
-  <project remote="github" name="kraj/meta-altera" path="layers/meta-altera"/>
-  <project remote="github" name="openpandora/meta-openpandora" path="layers/meta-openpandora"/>
-  <project remote="github" name="OSSystems/meta-browser" path="layers/meta-browser"/> -->
-  <project remote="github" name="meta-qt5/meta-qt5" path="layers/meta-qt5"/>
-  <project remote="github" name="Angstrom-distribution/meta-angstrom" path="layers/meta-angstrom">
-      <copyfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
+  <default revision="morty" sync-j="4"/>
+
+  <project name="Angstrom-distribution/meta-angstrom" path="layers/meta-angstrom" remote="github" revision="angstrom-v2016.12-yocto2.2" >
+    <copyfile dest="setup-environment" src="../../.repo/manifests/setup-environment"/>
   </project>
-  <project remote="yocto" name="meta-xilinx" path="layers/meta-xilinx"/>
-  <project remote="github" name="Lusus/meta-zturn" path="layers/meta-zturn" revision="master"/>
+  <project name="openembedded/bitbake" path="bitbake" remote="github" revision="1.32" />
+  <project name="openembedded/meta-openembedded" path="layers/meta-openembedded" remote="github"/>
+  <project name="openembedded/openembedded-core" path="layers/openembedded-core" remote="github"/>
+  <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github" revision="81fb771c3f31110e50eebcb004809361fdb28194" upstream="master"/>
+  <project name="meta-xilinx" path="layers/meta-xilinx" remote="yocto" revision="b2da4ccc5db004181b322c1992cac9120954138f" upstream="master"/>
+  <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro" revision="db09d028933ba2f86c2db2de916426103c6f20c8" upstream="master"/>
+  <project name="Lusus/meta-zturn" path="layers/meta-zturn" remote="github" upstream="master" revision="master"/>
 </manifest>
