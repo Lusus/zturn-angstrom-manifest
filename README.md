@@ -6,6 +6,8 @@ Quick hack Ångström Repo manifest repository, for zturn board. See https://git
 These are the setup scripts for the Ångström buildsystem. If you want to (re)build packages or images for Ångström, this is the thing to use.
 The Ångström buildsystem is using various components from the Yocto Project, most importantly the Openembedded buildsystem, the bitbake task executor and various application and BSP layers.
 
+First, install the necessary packages for your distro to build OpenEmbedded. See http://www.openembedded.org/wiki/Getting_started
+
 To configure the scripts and download the build metadata, do:
 
 	$ mkdir ~/bin
