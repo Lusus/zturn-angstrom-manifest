@@ -42,32 +42,41 @@ More rarely, Linux clients experience connectivity issues, getting stuck in the 
 	$ sudo sysctl -w net.ipv4.tcp_window_scaling=0
 	$ repo sync -j1
 
-
-Setup Environment
------------------
+Setup Environment and building
+------------------------------
 	$ . ./setup-environment
 	Select zturn-zynq7 from the menu
+
+Now a image can be built:
+
 	$ MACHINE=<machine> bitbake <image>
 	e.g. MACHINE=zturn-zynq7 bitbake zturn-image
 
-Creating a local topic branch
------------------------------
+(I usually get away with simply:)
+	$ bitbake zturn-image
 
-Setup will already create a branch called $USER/work
-but if you need to create local branches for all repos which then can be done e.g.
-
-	$ repo start myangstrom --all
-
-Where 'myangstrom' is the name of branch you choose
-
-Updating the sandbox
+Deploying to SD-card
 --------------------
+To create a bootable SD-card, first repartition and format a SD-card, with a small (say 64 MB) FAT primary partition, followed by a EXT4 partition.
 
-Setup will do this as well but in between if you need to bring changes from upstream then
-use following commands
+To populate the FAT partition, copy the files to which the symlinks listed below point to (all located in the deploy/glibc/images directory) to the FAT partition:
+boot.bin => boot.bin
+u-boot.img => u-boot.img
+uImage => uImage
+uImage-zynq-zturn.dtb => devicetree.dtb
 
-	$ repo sync
+Copy the desired bitstream to the FAT partition, and rename to system.bit.bin 
 
-Rease your local committed changes
+To populate the filesystem, sudo untar the Angstrom-zturn-image-glibc-ipk-v2016.12-zturn-zynq7.rootfs.tar.gz archive to the second EXT4 partition.
 
-	$ repo rebase
+Booting up
+----------
+Simply supply power to the board, via 5V or USB_UART.
+
+Use a serial communication application (eg kermit) to connect to the USB serial device created when USB_UART gets enumarated, at 115200 baud. This link may be useful: http://denx.de/wiki/view/DULG/SystemSetup
+
+Login as root without a password.
+
+Tweaks
+------
+Look at layers/meta-zturn (after repo checked everything out) for all the custom recipes for the zturn, especially the README.md file.
