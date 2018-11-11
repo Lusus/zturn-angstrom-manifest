@@ -17,5 +17,5 @@
   <project name="meta-qt5/meta-qt5" path="layers/meta-qt5" remote="github" revision="81fb771c3f31110e50eebcb004809361fdb28194" upstream="master"/>
   <project name="meta-xilinx" path="layers/meta-xilinx" remote="yocto" revision="b2da4ccc5db004181b322c1992cac9120954138f" upstream="master"/>
   <project name="openembedded/meta-linaro" path="layers/meta-linaro" remote="linaro" revision="db09d028933ba2f86c2db2de916426103c6f20c8" upstream="master"/>
-  <project name="Lusus/meta-zturn" path="layers/meta-zturn" remote="github" upstream="master" revision="master"/>
+  <project name="Lusus/meta-zturn" path="layers/meta-zturn" remote="github"/>
 </manifest>
